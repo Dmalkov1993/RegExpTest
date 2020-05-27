@@ -76,8 +76,10 @@ namespace RegExpTest
         enum RegExpMethod
         {
             IsMatch,
-            Replace
+            Replace,
+            Matches,
         }
+
         //По умолчанию при старте программы чекнут Replace
         RegExpMethod ChoisedRegExpMethod = RegExpMethod.IsMatch;
 
@@ -136,6 +138,9 @@ namespace RegExpTest
             {
                 //запоминаем выбранный метод
                 ChoisedRegExpMethod = RegExpMethod.IsMatch;
+
+                //Отключаем поле для Replace, так как выбран метод, НЕ Replace
+                ControlsForReplace_Disabled();
             }
 
             if (radioButtonReplace.Checked)
@@ -145,14 +150,16 @@ namespace RegExpTest
 
                 //запоминаем выбранный метод
                 ChoisedRegExpMethod = RegExpMethod.Replace;
-                //MessageBox.Show(radioButtonReplace.Text);
             }
-            else
+
+            if (radioButtonMatches.Checked)
             {
+                //запоминаем выбранный метод
+                ChoisedRegExpMethod = RegExpMethod.Matches;
+
                 //Отключаем поле для Replace, так как выбран метод, НЕ Replace
                 ControlsForReplace_Disabled();
             }
-
 
             //Проверяем, установлен ли флаг использования рег. выраж. без учёта регистра
             //Объявим переменную опций для регулярки
@@ -162,10 +169,6 @@ namespace RegExpTest
                 //Если да, то добавляем данную опцию
                 options = RegexOptions.IgnoreCase;
             }
-
-
-            //MessageBox.Show("текст изменён");
-
 
             switch (ChoisedRegExpMethod)
             {
@@ -185,12 +188,9 @@ namespace RegExpTest
                             //Не удаляя переносы строк
                             textBoxResultText.Text = rgx.IsMatch(textBoxInputText.Text).ToString();
                         }
-                        
-                        //MessageBox.Show("IsMatch");
                     }
                     catch (Exception ex)
                     {
-                        //MessageBox.Show("Кривой Рег експ");
                         labelUpperTextError.Text = "Ошибка:";
                         toolStripStatusLabelTextError.Text = ex.Message;
 
@@ -214,7 +214,7 @@ namespace RegExpTest
                             textBoxResultText.Text = rgx.Replace(textBoxInputText.Text, textBoxReplacementText.Text, 1000);
                         }
 
-                        
+
 
                         //И пройдёмся по всем строкам
                         /*
@@ -223,6 +223,35 @@ namespace RegExpTest
                             textBoxResultText.Text = textBoxResultText.Text + rgx.Replace(SingleLine, textBoxReplacementText.Text,1000);
                         }
                          */
+                    }
+                    catch (Exception ex)
+                    {
+                        //MessageBox.Show("Кривой Рег експ");
+                        labelUpperTextError.Text = "Ошибка:";
+                        toolStripStatusLabelTextError.Text = ex.Message;
+                    }
+                    break;
+
+                case RegExpMethod.Matches:
+                    try
+                    {
+                        if (textBoxInputText.Text.Length > 0 && textBoxRegExp.Text.Length > 0)
+                        {
+                            string inputString = textBoxInputText.Text;
+
+                            //Если стоит флаг "всё поле одной строкой", то убираем переносы строк
+                            if (checkBoxInputTextAsOneString.Checked)
+                            {
+                                inputString = textBoxInputText.Text.Replace(Environment.NewLine, " ");
+                            }
+
+                            var matches = Regex.Matches(inputString, textBoxRegExp.Text)
+                                            .Cast<Match>()
+                                            .Select(m => m.Value)
+                                            .ToList();
+
+                            textBoxResultText.Text = string.Join(" | ", matches);
+                        }
                     }
                     catch (Exception ex)
                     {

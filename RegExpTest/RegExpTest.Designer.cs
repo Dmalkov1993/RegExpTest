@@ -43,6 +43,7 @@
             this.labelForReplace = new System.Windows.Forms.Label();
             this.textBoxReplacementText = new System.Windows.Forms.TextBox();
             this.checkBoxInputTextAsOneString = new System.Windows.Forms.CheckBox();
+            this.radioButtonMatches = new System.Windows.Forms.RadioButton();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,7 +74,7 @@
             // checkBoxIgnoreCase
             // 
             this.checkBoxIgnoreCase.AutoSize = true;
-            this.checkBoxIgnoreCase.Location = new System.Drawing.Point(329, 11);
+            this.checkBoxIgnoreCase.Location = new System.Drawing.Point(508, 12);
             this.checkBoxIgnoreCase.Name = "checkBoxIgnoreCase";
             this.checkBoxIgnoreCase.Size = new System.Drawing.Size(124, 17);
             this.checkBoxIgnoreCase.TabIndex = 2;
@@ -85,10 +86,10 @@
             // 
             this.textBoxRegExp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxRegExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxRegExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxRegExp.Location = new System.Drawing.Point(94, 40);
             this.textBoxRegExp.Name = "textBoxRegExp";
-            this.textBoxRegExp.Size = new System.Drawing.Size(469, 22);
+            this.textBoxRegExp.Size = new System.Drawing.Size(593, 26);
             this.textBoxRegExp.TabIndex = 3;
             this.textBoxRegExp.TextChanged += new System.EventHandler(this.RegExpMainEvent);
             // 
@@ -96,12 +97,12 @@
             // 
             this.textBoxInputText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxInputText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxInputText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxInputText.Location = new System.Drawing.Point(94, 88);
             this.textBoxInputText.Multiline = true;
             this.textBoxInputText.Name = "textBoxInputText";
             this.textBoxInputText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxInputText.Size = new System.Drawing.Size(470, 86);
+            this.textBoxInputText.Size = new System.Drawing.Size(594, 86);
             this.textBoxInputText.TabIndex = 4;
             this.textBoxInputText.TextChanged += new System.EventHandler(this.RegExpMainEvent);
             // 
@@ -125,6 +126,8 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(5, 183);
             this.label3.Name = "label3";
@@ -134,14 +137,15 @@
             // 
             // textBoxResultText
             // 
-            this.textBoxResultText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxResultText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxResultText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxResultText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxResultText.Location = new System.Drawing.Point(94, 178);
             this.textBoxResultText.Multiline = true;
             this.textBoxResultText.Name = "textBoxResultText";
             this.textBoxResultText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxResultText.Size = new System.Drawing.Size(470, 86);
+            this.textBoxResultText.Size = new System.Drawing.Size(594, 86);
             this.textBoxResultText.TabIndex = 4;
             // 
             // statusStrip1
@@ -150,7 +154,7 @@
             this.toolStripStatusLabelTextError});
             this.statusStrip1.Location = new System.Drawing.Point(0, 274);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(575, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(699, 22);
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -163,6 +167,7 @@
             // 
             // labelUpperTextError
             // 
+            this.labelUpperTextError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelUpperTextError.AutoSize = true;
             this.labelUpperTextError.ForeColor = System.Drawing.Color.Red;
             this.labelUpperTextError.Location = new System.Drawing.Point(5, 257);
@@ -185,17 +190,17 @@
             this.textBoxReplacementText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxReplacementText.Enabled = false;
-            this.textBoxReplacementText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxReplacementText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxReplacementText.Location = new System.Drawing.Point(94, 64);
             this.textBoxReplacementText.Name = "textBoxReplacementText";
-            this.textBoxReplacementText.Size = new System.Drawing.Size(470, 22);
+            this.textBoxReplacementText.Size = new System.Drawing.Size(594, 26);
             this.textBoxReplacementText.TabIndex = 11;
             this.textBoxReplacementText.TextChanged += new System.EventHandler(this.RegExpMainEvent);
             // 
             // checkBoxInputTextAsOneString
             // 
             this.checkBoxInputTextAsOneString.AutoSize = true;
-            this.checkBoxInputTextAsOneString.Location = new System.Drawing.Point(147, 11);
+            this.checkBoxInputTextAsOneString.Location = new System.Drawing.Point(326, 12);
             this.checkBoxInputTextAsOneString.Name = "checkBoxInputTextAsOneString";
             this.checkBoxInputTextAsOneString.Size = new System.Drawing.Size(176, 17);
             this.checkBoxInputTextAsOneString.TabIndex = 12;
@@ -203,11 +208,22 @@
             this.checkBoxInputTextAsOneString.UseVisualStyleBackColor = true;
             this.checkBoxInputTextAsOneString.CheckedChanged += new System.EventHandler(this.RegExpMainEvent);
             // 
+            // radioButtonMatches
+            // 
+            this.radioButtonMatches.AutoSize = true;
+            this.radioButtonMatches.Location = new System.Drawing.Point(147, 11);
+            this.radioButtonMatches.Name = "radioButtonMatches";
+            this.radioButtonMatches.Size = new System.Drawing.Size(66, 17);
+            this.radioButtonMatches.TabIndex = 13;
+            this.radioButtonMatches.Text = "Matches";
+            this.radioButtonMatches.UseVisualStyleBackColor = true;
+            // 
             // RegExpTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 296);
+            this.ClientSize = new System.Drawing.Size(699, 296);
+            this.Controls.Add(this.radioButtonMatches);
             this.Controls.Add(this.checkBoxInputTextAsOneString);
             this.Controls.Add(this.textBoxReplacementText);
             this.Controls.Add(this.labelForReplace);
@@ -250,6 +266,7 @@
         public System.Windows.Forms.TextBox textBoxReplacementText;
         public System.Windows.Forms.Label labelUpperTextError;
         private System.Windows.Forms.CheckBox checkBoxInputTextAsOneString;
+        private System.Windows.Forms.RadioButton radioButtonMatches;
     }
 }
 
